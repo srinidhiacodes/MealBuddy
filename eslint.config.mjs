@@ -12,11 +12,17 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
+    // The Electron entry runs as plain CommonJS in Node.
+    files: ["electron/**/*.cjs"],
+    rules: { "@typescript-eslint/no-require-imports": "off" },
+  },
+  {
     ignores: [
       "node_modules/**",
       ".next/**",
       "out/**",
       "build/**",
+      "dist/**",
       "next-env.d.ts",
     ],
   },
