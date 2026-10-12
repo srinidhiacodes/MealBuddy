@@ -1,6 +1,5 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import("next").NextConfig} */
+const nextConfig = {
   // better-sqlite3 is a native module; load it from node_modules at runtime.
   serverExternalPackages: ["better-sqlite3"],
   experimental: {

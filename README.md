@@ -11,7 +11,18 @@ Plan a week of simple, healthy home meals from your own recipe files. Built for 
 - **Recipe page:** ingredients, steps, time, nutrition and source link, plus "I cooked this", "Loved it" and "Not again". Loved dishes come up more; "Not again" dishes stop appearing.
 - **Grocery list:** the week's ingredients combined and scaled to one person, grouped by category. Tick items as you shop, hide pantry staples, copy the list.
 
-## Run it
+## Install the desktop app (Windows)
+
+1. Open the repository on GitHub, go to **Actions**, then **Desktop app**, and open the latest green run.
+2. Under **Artifacts**, download **MealBuddy-Windows-installer** and unzip it.
+3. Run `MealBuddy-Setup-<version>.exe` and follow the installer. Windows may show "Windows protected your PC" because the app is not code-signed: click **More info**, then **Run anyway**.
+4. Open **MealBuddy** from the Start menu or the desktop shortcut.
+
+Your data is kept in `%APPDATA%\MealBuddy\mealbuddy.db`, so reinstalling or updating keeps your recipes and plans.
+
+To build the installer yourself on a Windows PC: `npm ci`, then `npm run desktop:build`. The `.exe` appears in `dist/`.
+
+## Run it from source
 
 Needs Node.js 22 or newer.
 
@@ -60,6 +71,8 @@ src/
     grocery.ts    ingredient parsing and the shopping list
     repo.ts, db.ts  SQLite storage
 samples/          sample recipe file
+electron/         desktop app shell (starts the server and opens a window)
+build/            app icon
 ```
 
 ## Scripts
@@ -70,5 +83,6 @@ samples/          sample recipe file
 | `npm run build` / `npm start` | Production build and server |
 | `npm test` | Unit tests (import, tagging, planner, grocery) |
 | `npm run lint` | ESLint |
+| `npm run desktop:build` | Build the desktop installer for the current OS into `dist/` |
 
 Stack: Next.js 15, React 19, TypeScript, Tailwind CSS 4, SQLite (better-sqlite3), PapaParse and read-excel-file.
