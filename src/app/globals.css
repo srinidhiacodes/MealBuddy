@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Figtree:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+/* Ocean and coral palette. One main colour (ocean) for actions, coral only for "today". */
+@theme {
+  --color-ocean: #1f6fb2;
+  --color-ocean-dark: #175a91;
+  --color-ocean-tint: #e6f0f9;
+  --color-coral: #e8603f;
+  --color-coral-bright: #ff7a59;
+  --color-coral-tint: #ffede7;
+  --color-ink: #13283b;
+  --color-muted: #5b6c7c;
+  --color-subtle: #3e5163;
+  --color-line: #e0e9f1;
+  --color-line-soft: #edf2f7;
+  --color-page: #f5f9fc;
+  --color-control: #c8d4e0;
+
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Baloo 2", "Figtree", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ocean);
+  outline-offset: 2px;
+}
